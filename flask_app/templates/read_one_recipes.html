@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read_One_Recipes</title>
+</head>
+<body>
+
+<h1> Welcome, {{current_user.last_name}}!</h1>
+
+<a href="/recipes">Back to recipes</a>
+<br>
+<a href="/logout">logout</a>
+
+<h2>{{recipe_data.name}}</h2>
+
+<p>Description: {{recipe_data.description}}</p>
+
+<p>Under 30 Minutes? {{recipe_data.time}}</p>
+
+<p>Instructions: {{recipe_data.instructions}}</p>
+
+<p>Date Made: {{recipe_data.date}}</p>
+
+
+
+
+
+
+
+</body>
+</html>

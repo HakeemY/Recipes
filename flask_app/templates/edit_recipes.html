@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <h1> Edit Recipe!</h1>
+    <br>
+    <a href="/recipes">Back to recipes</a>
+    <br>
+    <a href="/logout">logout</a>
+    <hr>
+        {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="/recipes/update" method="post">
+        <label for="name">Name</label>
+        <input type="hidden" name="id" value="{{recipe_data.id}}">
+        <input type="text" name="name" value="{{recipe_data.name}}">
+        <br><br> 
+        <label for="description">Description</label>
+        <textarea cols="30" rows="10" type="text" name="description" >{{recipe_data.description}}</textarea>
+        <br><br>
+        <label for="instructions">Instructions</label>
+        <textarea cols="30" rows="10" type="text" name="instructions">{{recipe_data.instructions}}</textarea>
+        
+        <br><br>
+        <label for="date">Date Cooked/Made:</label>
+        <br><br>
+        <input type="date" name="date" id="date" value="{{recipe_data.date}}">
+        <br><br>
+        <fieldset>
+        <legend>Under 30 Minutes?</legend>
+            
+        <label for="yes">Yes</label>
+        <input type="radio" name="time" value="yes">
+        {% if 'yes' in recipe_data.time %}
+            checked
+        {% endif %}
+        
+        <label for="no">No</label>
+        <input type="radio" name="time" value="no" checked>
+        {% if 'no' in recipe_data.time %}
+            checked 
+        {% endif %}
+    
+    
+    </fieldset>
+        <br><br>
+        <button>Submit</button>
+
+    </form>
+</body>
+</html>
